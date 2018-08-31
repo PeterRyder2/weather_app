@@ -18,7 +18,7 @@ def getweather():
         jresponse = response.text
         data = json.loads(jresponse)
         print(data)
-        a = "poo"
+        a = "peter is great"
         return render_template("template.html",  a=a)
     else:
         print("entered else loop")
