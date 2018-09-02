@@ -1,6 +1,6 @@
 # accuweather keys
 # location key (for foxford)= 210463
-# API key = pc2TdWiYE3WoXW0xP339FGj8HWqXpeEc
+# API key = 8aaae57f966915b85ed963bd8af3866f
 
 
 from flask import Flask, render_template, redirect, request
@@ -16,16 +16,12 @@ def index():
 def getweather():
     if request.method == "POST":
         print("entered loop")
-        url = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/210463?apikey=pc2TdWiYE3WoXW0xP339FGj8HWqXpeEc'
+        url= 'https://api.openweathermap.org/data/2.5/weather?lat=53.976192&lon=-9.117549&appid=8aaae57f966915b85ed963bd8af3866f'
         response = requests.get(url)
         jresponse = response.text
         data = json.loads(jresponse)
-        data2 = objectpath.Tree(data['DailyForecasts'])
-        result = data2.execute("$.Day")
-        print(result)
         #print("Data2 is {}".format(data2))
-
-        return render_template("template.html",  a=result)
+        return render_template("template.html", a=data)
     else:
         print("entered else loop")
         render_template("template.html")
