@@ -21,7 +21,7 @@ def getweather():
         response = requests.get(url)
         jresponse = response.text
         data = json.loads(jresponse)
-        #data2 = data["DailyForecasts"]['Day']
+        data2 = data["DailyForecasts"]['Day']
         #print("Data2 is {}".format(data2))
         return render_template("template.html",  a=data['DailyForecasts'])
     else:
