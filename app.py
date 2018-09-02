@@ -4,7 +4,7 @@
 
 
 from flask import Flask, render_template, redirect, request
-import urllib, json, requests
+import urllib, json, requests, objectpath
 
 app = Flask(__name__)
 
@@ -17,19 +17,21 @@ def getweather():
     if request.method == "POST":
         print("entered loop")
         url = 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/210463?apikey=pc2TdWiYE3WoXW0xP339FGj8HWqXpeEc'
-        
         response = requests.get(url)
         jresponse = response.text
         data = json.loads(jresponse)
-        data2 = data["DailyForecasts"]['Day']
+        data2 = objectpath.Tree(data['DailyForecasts'])
+        result = data2.execute("$.Day")
+        print(result)
         #print("Data2 is {}".format(data2))
-        return render_template("template.html",  a=data['DailyForecasts'])
+
+        return render_template("template.html",  a=result)
     else:
         print("entered else loop")
         render_template("template.html")
 
 if __name__ == "__main__":
-    app.run(debug= True)
+    app.run(debug=True)
 
 
 
