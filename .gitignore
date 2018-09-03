@@ -2,3 +2,4 @@ env
 screen.log
 Pipfile.lock
 Pipfile
+__pycache__
