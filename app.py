@@ -5,18 +5,10 @@
 from flask import Flask, render_template, redirect, request, url_for
 import urllib, json, requests
 
-
-# todays JSON output
-JSON = {'coord': {'lon': -9.12, 'lat': 53.98}, 'weather': [{'id': 801, 'main': 'Clouds', 'description': 'few clouds', 'icon': '02d'}], 
-'base': 'stations', 'main': {'temp': 285.15, 'pressure': 1027, 'humidity': 76, 'temp_min': 285.15, 'temp_max': 285.15}, 
-'visibility': 10000, 'wind': {'speed': 4.1, 'deg': 310}, 'clouds': {'all': 20}, 'dt': 1535967000,
-'sys': {'type': 1, 'id': 5238, 'message': 0.002, 'country': 'IE', 'sunrise': 1535953728, 'sunset': 1536002486},
-'id': 2964233, 'name': 'Foxford', 'cod': 200}
-
 app = Flask(__name__)
  
 @app.route('/')
-@app.route('/home')
+@app.route('/home') 
 def index():
     return render_template("layout.html")
 
