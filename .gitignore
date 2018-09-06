@@ -3,3 +3,4 @@ screen.log
 Pipfile.lock
 Pipfile
 __pycache__
+app.cpython-36.pyc
