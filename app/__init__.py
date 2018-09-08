@@ -13,6 +13,8 @@ app.config["SECRET_KEY"] = '07f6eb13ea9fc96e2a0a213a0e17becd'
 db = SQLAlchemy(app) 
 bcrypt = Bcrypt()
 login_manager= LoginManager(app)
-
+#sets the path for the login view (used in @login_required)
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info' 
 
 from app import routes
