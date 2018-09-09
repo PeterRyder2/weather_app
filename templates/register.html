@@ -7,7 +7,7 @@
             <legend class =  "border-bottom mb-4">Join Now</legend>
             <div class = "form-group"> 
                 {{form.username.label(class= "form-control-label")}}
-
+                <!-- for error checking -->
                 {%if form.username.errors%}
                     {{form.username (class="form-control form-control-lg form control-lg is-invalid")}}
                     <div class = "invalid-feedback">
@@ -24,7 +24,7 @@
 
             <div class = "form-group"> 
                 {{form.email.label(class= "form-control-label")}}
-
+                <!-- for error checking -->
                 {%if form.email.errors%}
                     {{form.email (class="form-control form-control-lg form control-lg is-invalid")}}
                     <div class = "invalid-feedback">
@@ -40,7 +40,7 @@
                 </div>
             <div class = "form-group"> 
                 {{form.password.label(class= "form-control-label")}}
-
+                <!-- for error checking -->
                 {%if form.password.errors%}
                     {{form.password (class="form-control form-control-lg form control-lg is-invalid")}}
                     <div class = "invalid-feedback">
@@ -55,7 +55,7 @@
                 {%endif%}            </div>
             <div class = "form-group"> 
                 {{form.confirm_password.label(class= "form-control-label")}}
-                
+                <!-- for error checking -->
                 {%if form.confirm_password.errors%}
                     {{form.confirm_password (class="form-control form-control-lg form control-lg is-invalid")}}
                     <div class = "invalid-feedback">

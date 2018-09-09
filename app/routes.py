@@ -10,7 +10,10 @@ from flask_login import login_user, UserMixin, current_user, logout_user, login_
 @app.route('/')
 @app.route('/home') 
 def home():
-    return render_template("layout.html")
+    if current_user.is_authenticated:
+        return render_template("layout.html", title="home")
+    else:
+        return render_template("starter_page.html")
 
 
 @app.route('/weather', methods = ["GET", "POST"])
