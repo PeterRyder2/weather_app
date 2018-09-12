@@ -44,13 +44,12 @@
                           <!-- Navbar Right Side -->
                           <div class="navbar-nav">
                             {% if current_user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{{ url_for('account')}}">Account</a>
-                            <a class="nav-item nav-link" href="{{ url_for('logout')}}">Logut</a>
+                            <a class="nav-item nav-link " href="{{ url_for('account')}}">Account</a>
+                            <a class="nav-item nav-link " href="{{ url_for('logout')}}">Logut</a>
                             {% else %}
                               <a class="nav-item nav-link" href="{{ url_for('login')}}">Login</a>
                               <a class="nav-item nav-link" href="{{ url_for('register')}}">Register</a>
                             {% endif %}
-                          
                           </div>
                         </div>
                       </div>
@@ -59,14 +58,21 @@
 
         
             {%if current_user.is_authenticated %}
-            <form class = "col-md-" action = "/weather" method = "post">
+            <div>
+                <h1 class = "row justify-content-md-center"> Welcome {{current_user.username}}. Please choose an option of what to do</h1>
+                <img class = "rounded-circle account-img"  src ="/static/images/foxford_image.jpg" alt="foxford_image">
+            </div>
+            <form class = "row justify-content-md-center" action = "/weather" method = "post">
                 <button class="btn btn-primary" type="submit">Get weather for foxford </button>
             </form>
+            <div >
+            </div>
+          
+
             {%endif%}       
         
 <main role="main" class="container">
         <div class="row">
-
                 <!-- code to add flashed message (derived from register and login function in routes   )-->
           {% with messages = get_flashed_messages(with_categories=true)%}
             {%if messages%}
